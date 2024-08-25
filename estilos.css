@@ -1,7 +1,13 @@
+/*----------------------------ESTRUCTURACIONES FIJAS*/
 :root {
     --text-color: hsl(0, 0%, 100%);
     --text-title: hsl(51, 100%, 50%);
     --background-boton: hsl(60, 100%, 50%);
+    --clr-black: #1c1c1c;
+    --clr-gray: #05557d;
+    --clr-gray-2: #e8dd0b;
+    --clr-white: rgba(5, 99, 120, 0.5);
+    --clr-white-2: rgba(8, 77, 134, 0.5);
 }
 
 * {
@@ -26,156 +32,20 @@ body {
     src: url('./fonts/titulo.ttf') format('truetype');
 }
 
-
-
-header{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    justify-items: center;
-    background-color: black;
-    position: sticky;
-    height: 100px;
-    width: 100%;
-    top: 0;
-    margin-top: 1vw;
-    padding-top: 2vw;
-    z-index: 99;
-    ;
-}
-
-.pagina_1{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    height: 100vh;
-}
-
-h1{
-    font-family: 'letra star wars';
-    font-size: 25em;
-    color: white;
-    text-align: center;
-    align-self: center;
-    margin-top: -15vw;
-}
-p{
-    margin-top: -5vw;
-    text-align: center;
-    font-size: 2em;
-    font-family: 'letra titulo'
-}
-
-.header__list{
-    display: flex;
-    list-style: none;
-    text-transform: uppercase;
-    align-items: center;
-    justify-content: center;
-    font-family: 'letra titulo'
-}
-
-.header__item{
-    margin:1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-}
-
-.header__link{
-    text-decoration: none; 
-    color: inherit; 
-    display: flex; 
-    text-align: center; 
-    flex-direction: column; 
-    align-items: center; 
-    transition-duration: 0.5s;
-}
-
-a{
-    text-decoration: none; 
-    color: inherit;
-}
-
-.header__link:active{
-    color: yellow;
-    transition-duration: 1s;
-    filter: sepia(1) saturate(10) brightness(1.2);
-}
-
-.Logos{
-    width: 4rem;
-    height: auto;
-}
-
-.submenu {
-    display: none; 
-    position: absolute;
-    top: 100%; 
-    left: 0;
-    background-color: rgba(37, 38, 41, 0.8);
-    padding: 0.5rem;
-    list-style: none;
-    margin: 0;
-    float: left;
-    font-family: "letra titulo";
-}
-
-.submenu__item {
-    margin: 0.5rem 0;
-}
-
-.submenu__link {
-    color: #fff;
-    text-decoration: none;
-}
-
-.submenu__link:active {
-    color: yellow;
-    transition-duration: 1s;
-}
-
-.header__item:active .submenu {
-    display: block;
-}
-
-.Inicio{
-    width: 100vw;
-    height: 100vh;
-    text-align: center;
-    background-color: rgba(37, 38, 41, 0.8);
-}
-
-.Inicio .gif{
-    position: absolute;
-    top: 150vh;
-    left: 0;
-    width: 10vw;
-}
-.Inicio img{
-    width: 100dvw;
-    height: auto;
-}
-
-.opc{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
+@font-face {
+    font-family: 'letra texto general' ;
+    src: url('./fonts/generico.otf') format('truetype');
 }
 
 
-
-
+/*---------------------------- VIDEO FONDO DE LA PAGINA */
 .video-background {
     position: fixed; /* Fija el video para que siempre esté en el fondo */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Coloca el video detrás del contenido */
+    z-index: -1000; /* Coloca el video detrás del contenido */
     overflow: hidden;
 }
 
@@ -190,20 +60,12 @@ a{
     z-index: -1; /* Asegura que el video esté detrás del contenido */
 }
 
-header {
-    position: relative;
-    z-index: 1; 
-    text-align: center;
-    padding: 20px;
-}
-
-
 main {
     position: relative;
     z-index: 1; 
 }
 
-/*MENU*/
+/*----------------------------MENU*/
 header{
     display: flex;
     flex-direction: column;
@@ -216,7 +78,7 @@ header{
     width: 100%;
     top: 0;
     z-index: 99;
-    font-family: "DINN";
+    font-family: "letra titulo";
 }
 
 .header__list{
@@ -271,7 +133,7 @@ a{
     list-style: none;
     margin: 0;
     float: left;
-    font-family: "DINN";
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 .submenu__item {
@@ -322,6 +184,253 @@ a{
     display: none;
 }
 
+
+
+/* ----------------------------PAGINA 1 TITULO Y PARRAFO */
+.pagina_1{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+h1{
+    font-family: 'letra star wars';
+    font-size: 25em;
+    color: white;
+    text-align: center;
+    align-self: center;
+    margin-top: -15vw;
+}
+.parrafo_1{
+    margin-top: -5vw;
+    text-align: center;
+    font-size: 2em;
+    font-family: 'letra titulo'
+}
+
+/* ---------------------------- PAGINA 2 SECCIONES DE BUSQUEDA DIVIDIDAS */
+
+
+
+
+.pagina_2{
+    padding: 2rem;
+    max-width: 10000px;
+    margin: 0 auto;
+}
+
+
+#todos{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+
+#descripcion-Starwar{
+    overflow: hidden;
+    max-height: 100vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+#listabusqueda{
+    height: 100vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+h3{
+    font-family: 'letra titulo'
+}
+
+/* ----------------- Descripcion de busqueda ----------- */
+
+.star-Busqueda{
+    display: grid;
+    grid-template-rows: 0.1fr .2fr .7fr;
+    border-radius: 1rem;
+    background-color: var(--clr-white);
+    box-shadow: 0 0 3rem -1rem rgba(0,0,0,.25);
+    padding-block: 1rem;
+    text-transform: uppercase;
+}
+.busqueda-titulo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+.descripcion-imagen{
+    padding-inline: 1rem;
+    display: flex;
+    justify-content: center;
+}
+.descripcion-imagen img{
+    width: 100%;
+    max-width: 15rem;
+}
+.busqueda-descripcion{
+    display: flex;
+    flex-direction: column;
+    gap:.5rem ;
+    padding-inline: 1rem;
+    align-items: center;
+    text-align: center;
+}
+.descripcion-de-busqueda{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* --------------------- */
+
+
+
+
+
+
+
+
+.busqueda-todos{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+
+.tarjeta{
+    border-radius: 1rem;
+    background-color: var(--clr-white-2);
+    box-shadow: 0 0 3rem -1rem rgba(0,0,0,.25);
+    padding-block: 1rem;
+    margin-inline: 0rem 2rem;
+    text-transform: uppercase;
+    position: relative;
+    isolation: isolate;
+}
+.busqueda-id-back{
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--clr-gray);
+    z-index: -1;
+}
+.busqueda-imagen{
+    padding-inline: 1rem;
+    display: flex;
+    justify-content: center;
+}
+.busqueda-imagen img{
+    width: 100%;
+    max-width: 6rem;
+}
+.tarjeta-info{
+    gap:.5rem ;
+    padding-inline: 1rem;
+    align-items: center;
+    text-align: center;
+}
+.nombre-contenedor{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem .5rem;
+}
+/* .pokemon-id{
+    background-color: var(--clr-gray);
+    padding: .25rem .5rem;
+    border-radius: 100vmax;
+    font-size: .75rem;
+    font-weight: 500;
+} */
+
+
+.busqueda-nombre{
+    font-family: 'letra titulo';
+    font-size: 1.4rem;
+    font-weight: 500;
+    background-color: var(--clr-gray-2);
+    padding: .25rem .5rem;
+    border-radius: 100vmax;
+}
+
+
+.contenedor-primer-dato{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem .5rem;
+
+
+}
+.primer-dato{
+    font-family: 'letra titulo';
+    font-size: 1.4rem;
+    /* font-weight: 500; */
+    background-color: var(--clr-gray);
+    padding: .25rem .5rem;
+    border-radius: 100vmax;
+}
+
+
+.contenedor-segundo-dato{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem .5rem;
+}
+.segundo-dato{
+    font-family: 'letra titulo';
+    font-size: 1.4rem;
+    /* font-weight: 500; */
+    background-color: var(--clr-gray);
+    padding: .25rem .5rem;
+    border-radius: 100vmax;
+}
+
+
+/*----------------------------LIMITE DE PANTALLA para menos de 300 px*/
+
+.advertencia_celular {
+    display: none;
+}
+.mensaje_advertencia_celular{
+    text-align: center;
+    padding: 1vw;
+    background-color: #ffa200;
+    color: #000000;
+    font-size: 1.5em;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 55%;
+    border: 2px dashed #000;
+}
+div.advertencia_celular img{
+    background-attachment: fixed;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+} 
+
+
+
+
+
+/* ----------------------------RESPONSIVE MENU */
+
 @media (max-width: 600px) {
     header{
         margin-top: 0;
@@ -367,6 +476,7 @@ a{
     .submenu__link {
         color: #fff;
     }
+/* ----------------------------RESPONSIVE PAGINA 1 */
     .pagina_1{
         width: 100vw;
         display: flex;
@@ -380,35 +490,41 @@ a{
 }
 
 
-/*LIMITE DE PANTALLA*/
 
-.advertencia_celular {
-    display: none;
+/* ----------------------------RESPONSIVE PAGINA 2 */
+
+@media screen and (max-width: 600px){
+    #todos{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
 }
-.mensaje_advertencia_celular{
-    text-align: center;
-    padding: 1vw;
-    background-color: #ffa200;
-    color: #000000;
-    font-size: 1.5em;
-    position: fixed;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-    width: 55%;
-    border: 2px dashed #000;
+
+
+@media screen and (min-width: 830px){
+    .busqueda-todos{
+        grid-template-columns: 1fr 1fr;
+    }
+    .tarjeta{
+        margin-inline: 0rem 0rem;
+    }
 }
-div.advertencia_celular img{
-    background-attachment: fixed;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: translate(-50%, -50%);
-} 
+@media screen and (min-width: 1100px){
+    .busqueda-todos{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .tarjeta{
+        margin-inline: 0rem 0rem;
+    }
+
+
+}
+
+
+
+
+/*----------------------------MEDIA LIMITE DE PANTALLA para menos de 300 px*/
 @media (max-width: 330px) {
     .advertencia_celular {
         display: block;
