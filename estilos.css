@@ -431,7 +431,7 @@ div.advertencia_celular img{
 
 /* ----------------------------RESPONSIVE MENU */
 
-@media (max-width: 600px) {
+@media (max-width: 715px) {
     header{
         margin-top: 0;
     }
@@ -493,7 +493,7 @@ div.advertencia_celular img{
 
 /* ----------------------------RESPONSIVE PAGINA 2 */
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 715px){
     #todos{
         display: flex;
         flex-direction: column;
