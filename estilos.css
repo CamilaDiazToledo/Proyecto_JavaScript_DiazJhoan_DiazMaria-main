@@ -63,6 +63,7 @@ body {
 main {
     position: relative;
     z-index: 1; 
+    justify-content: center;
 }
 
 /*----------------------------MENU*/
@@ -395,6 +396,71 @@ h3{
 }
 
 
+/*---------------------------FOOTER*/
+.footer {
+    background-color: rgba(1, 10, 17, 0.6);
+    color: #fff; 
+    padding: 8px 0;
+    text-align: center;
+}
+
+.footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.footer__logo img {
+    width: 50px; 
+}
+
+
+.footer__links h3 {
+    margin: 0;
+}
+
+.footer__links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer__links a:hover {
+    text-decoration: underline;
+}
+
+
+
+.footer__social ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.footer__social ul li {
+    margin: 0 10px;
+}
+
+.footer__social a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer__social a:hover {
+    text-decoration: underline;
+}
+
+.ig{
+    width: 1.5vw;
+}
+.fb{
+    width: 0.8vw
+}
+
 /*----------------------------LIMITE DE PANTALLA para menos de 300 px*/
 
 .advertencia_celular {
@@ -431,7 +497,7 @@ div.advertencia_celular img{
 
 /* ----------------------------RESPONSIVE MENU */
 
-@media (max-width: 600px) {
+@media (max-width: 715px) {
     header{
         margin-top: 0;
     }
@@ -467,6 +533,7 @@ div.advertencia_celular img{
         position: static;
         background-color: transparent;
         padding: 0;
+        height: 100vw;
     }
 
     .submenu__item {
@@ -493,7 +560,7 @@ div.advertencia_celular img{
 
 /* ----------------------------RESPONSIVE PAGINA 2 */
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 715px){
     #todos{
         display: flex;
         flex-direction: column;
@@ -524,7 +591,7 @@ div.advertencia_celular img{
 
 
 
-/*----------------------------MEDIA LIMITE DE PANTALLA para menos de 300 px*/
+/*----------------------------RESPONSIVE MEDIA LIMITE DE PANTALLA para menos de 300 px*/
 @media (max-width: 330px) {
     .advertencia_celular {
         display: block;
@@ -536,6 +603,26 @@ div.advertencia_celular img{
 
 
 
+
+
+
+/*----------------------------RESPONSIVE FOOTER*/
+@media (max-width: 715px) {
+    .footer__social ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer__social ul li {
+        margin: 1px 0;
+    }
+    .ig{
+        width: 5vw;
+    }
+    .fb{
+        width: 3vw
+    }
+}
 
 
 
