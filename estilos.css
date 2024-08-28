@@ -64,6 +64,8 @@ main {
     position: relative;
     z-index: 1; 
     justify-content: center;
+    scroll-behavior: smooth;
+    /* scroll-padding-bottom:50rem; */
 }
 
 /*----------------------------MENU*/
@@ -75,9 +77,9 @@ header{
     justify-items: center;
     background-color: rgba(17, 16, 20, 0.6);
     position: sticky;
-    height: 100px;
+    height: 110px;
     width: 100%;
-    top: 1vw;
+    top: .01vw;
     z-index: 99;
     font-family: "letra titulo";
 }
@@ -202,7 +204,20 @@ h1{
     text-align: center;
     align-self: center;
     margin-top: -15vw;
+    transition: animation 3s ease-in-out, filter .5s ease-in-out;
 }
+h1:hover{
+    filter: drop-shadow(3px 3px 5px rgb(255, 255, 0));
+    white-space: nowrap;
+    overflow: hidden;
+    animation: scroll-left 5s ease-in-out infinite alternate;
+}
+@keyframes scroll-left {
+    0% { transform: translateY(0%); }
+    50% { transform: translateY(8%); }
+    100% { transform: translateY(-10%); }
+}
+
 .parrafo_1{
     margin-top: -5vw;
     text-align: center;
@@ -230,16 +245,20 @@ h1{
 
 
 #descripcion-Starwar{
-    overflow: hidden;
+    /* overflow: hidden; */
     max-height: 100vh;
-    overflow-y: auto;
+    overflow-y: scroll;
+    scrollbar-color: transparent transparent;
     -webkit-overflow-scrolling: touch;
 }
 
 
 #listabusqueda{
     height: 100vh;
-    overflow-y: auto;
+    overflow: scroll ;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-color: #007 yellow;
     -webkit-overflow-scrolling: touch;
 }
 
@@ -284,8 +303,11 @@ h3{
 }
 .descripcion-de-busqueda{
     font-family: Arial, Helvetica, sans-serif;
+    text-transform: lowercase;
 }
-
+.descripcion-de-busqueda::first-letter{
+    text-transform: uppercase;
+}
 
 /* --------------------- */
 
@@ -344,6 +366,7 @@ h3{
     align-items: center;
     justify-content: center;
     padding: .5rem .5rem;
+    margin-top: 1vh;
 }
 /* .pokemon-id{
     background-color: var(--clr-gray);
@@ -356,10 +379,11 @@ h3{
 
 .busqueda-nombre{
     font-family: 'letra titulo';
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 100;
     background-color: var(--clr-gray-2);
-    padding: .25rem .5rem;
+    color: var(--clr-black);
+    padding: .2rem .2rem;
     border-radius: 100vmax;
 }
 
@@ -369,6 +393,7 @@ h3{
     align-items: center;
     justify-content: center;
     padding: .5rem .5rem;
+    
 }
 .primer-dato{
     font-family: 'letra titulo';
@@ -377,6 +402,7 @@ h3{
     background-color: var(--clr-gray);
     padding: .25rem .5rem;
     border-radius: 100vmax;
+    letter-spacing: 1.2px;
 }
 
 
@@ -393,6 +419,7 @@ h3{
     background-color: var(--clr-gray);
     padding: .25rem .5rem;
     border-radius: 100vmax;
+    letter-spacing: 1.2px;
 }
 
 
@@ -569,7 +596,7 @@ div.advertencia_celular img{
 }
 
 
-@media screen and (min-width: 830px){
+@media screen and (min-width: 1010px){
     .busqueda-todos{
         grid-template-columns: 1fr 1fr;
     }
@@ -577,7 +604,7 @@ div.advertencia_celular img{
         margin-inline: 0rem 0rem;
     }
 }
-@media screen and (min-width: 1100px){
+@media screen and (min-width: 1392px){
     .busqueda-todos{
         grid-template-columns: 1fr 1fr 1fr;
     }

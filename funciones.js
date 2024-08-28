@@ -773,7 +773,7 @@ function mostrarPlanetasDiametro(data){
 // Starships 77 --name/--manufacturer &--model /--length 
 // 
 
-// -------------- Cambio seccion derecha
+// -------------- Cambio seccion Izquierda
 
 
 function cambioPersonajes(){
