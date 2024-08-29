@@ -399,7 +399,8 @@ h3{
     font-family: 'letra titulo';
     font-size: 1rem;
     /* font-weight: 500; */
-    background-color: var(--clr-gray);
+    background-color:#007;
+    
     padding: .25rem .5rem;
     border-radius: 100vmax;
     letter-spacing: 1.2px;
@@ -416,7 +417,8 @@ h3{
     font-family: 'letra titulo';
     font-size: 1rem;
     /* font-weight: 500; */
-    background-color: var(--clr-gray);
+    background-color:var(--clr-gray-2);
+    color: var(--clr-black);
     padding: .25rem .5rem;
     border-radius: 100vmax;
     letter-spacing: 1.2px;
