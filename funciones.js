@@ -5,6 +5,8 @@ const listabusqueda= document.querySelector("#listabusqueda");
 const descripcion = document.querySelector("#descripcion-Starwar");
 const botonesHeader = document.querySelectorAll(".submenu__item");
 
+
+
 var URL= "https://swapi.py4e.com/api/people/"
     for(let i = 1; i<= 88; i++){
         fetch(URL + i)
@@ -123,6 +125,7 @@ function filmsDirector(){
                 console.error(`Error fetching data for person ${i}:`, error);
             });
     }
+    
 }
 function filmsProductor(){
     var URL= "https://swapi.py4e.com/api/films/"
@@ -363,6 +366,187 @@ function vehiclesTripulantes(){
             .catch(error => {
                 // Capturamos el error para evitar que el código se detenga
                 console.error(`Error fetching data for person ${i}:`, error);
+            });
+    }
+}
+
+function filmsCampoEspecifico(llave,valor,titulo) {
+    var URL = "https://swapi.py4e.com/api/films/";
+    document.getElementById('contenedorTarjetas').innerHTML = "";
+    fetch(URL)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log("Datos recibidos:", data); // Verifica los datos recibidos en la consola
+
+            data.results.forEach(film => {
+                if (film[llave] === valor) {
+                    mostrarPeliculasCampoEspecifico(film,llave,titulo);
+                }
+            });
+        })
+        .catch(error => {
+            console.error("Error fetching data:", error);
+        });
+}
+/*PELICULAS DECADA ESPECIFICO--------------------------------------------------------------*/
+function filmsDecadaEspecifico(decada, llave, titulo) {
+    var URL = "https://swapi.py4e.com/api/films/";
+    
+    fetch(URL)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log("Datos recibidos:", data);
+
+        data.results.forEach(film => {
+
+            const año = parseInt(film.release_date.split("-")[0]);
+
+
+            if (decada === 70 && año >= 1970 && año < 1980) {
+                mostrarPeliculasDecadaEspecifico(film, llave, titulo);
+            } else if (decada === 80 && año >= 1980 && año < 1990) {
+                mostrarPeliculasDecadaEspecifico(film, llave, titulo);
+            } else if (decada === 90 && año >= 1990 && año < 2000) {
+                mostrarPeliculasDecadaEspecifico(film, llave, titulo);
+            } else if (decada === 2000 && año >= 2000 && año < 2010) {
+                mostrarPeliculasDecadaEspecifico(film, llave, titulo);
+            }
+        });
+    })
+    .catch(error => {
+        console.error("Error fetching data:", error);
+    });
+}
+
+/*PERSONAJES CAMPO ESPECIFICO--------------------------------------------------------------*/
+
+function PeopleCampoEspecifico(llave, valor, titulo) {
+    var URL = "https://swapi.py4e.com/api/people/";
+    for (let i = 1; i <= 88; i++) {
+        fetch(URL + i)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("Datos recibidos:", data); 
+                if (data[llave] === valor) {
+                    mostrarPersonajeCampoEspecifico(data, llave, titulo);
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching data:", error);
+            });
+    }
+}
+
+
+/*ESPECCIES CAMPO ESPECIFICO--------------------------------------------------------------*/
+function especieCampoEspecifico(llave, valor, titulo) {
+    var URL = "https://swapi.py4e.com/api/species/";
+    for (let i = 1; i <= 37; i++) {
+        fetch(URL + i)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("Datos recibidos:", data); 
+                if (data[llave] === valor) {
+                    mostrarEspeciesCampoEspecifico(data, llave, titulo);
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching data:", error);
+            });
+    }
+}
+
+
+/*NAVES CAMPO ESPECIFICO--------------------------------------------------------------*/
+
+function navesCampoEspecifico(llave, valor, titulo) {
+    var URL = "https://swapi.py4e.com/api/starships/";
+    for (let i = 1; i <= 77; i++) {
+        fetch(URL + i)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("Datos recibidos:", data); 
+                if (data[llave] === valor) {
+                    mostrarNavesCampoEspecifico(data, llave, titulo);
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching data:", error);
+            });
+    }
+}
+
+
+
+/*VEHICULO CAMPO ESPECIFICO--------------------------------------------------------------*/
+function vehiculoCampoEspecifico(llave, valor, titulo) {
+    var URL = "https://swapi.py4e.com/api/vehicles/";
+    for (let i = 1; i <= 39; i++) {
+        fetch(URL + i)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("Datos recibidos:", data); 
+                if (data[llave] === valor) {
+                    mostrarVehiculoCampoEspecifico(data, llave, titulo);
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching data:", error);
+            });
+    }
+}
+
+/*PLANETA CAMPO ESPECIFICO--------------------------------------------------------------*/
+function planetaCampoEspecifico(llave, valor, titulo) {
+    var URL = "https://swapi.py4e.com/api/planets/";
+    for (let i = 1; i <= 61; i++) {
+        fetch(URL + i)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("Datos recibidos:", data); 
+
+                
+                if (data[llave] === valor) {
+                    mostrarPlanetaCampoEspecifico(data, llave, titulo);
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching data:", error);
             });
     }
 }
@@ -765,6 +949,174 @@ function mostrarPlanetasDiametro(data){
     listabusqueda.append(div);
 }
 
+
+/*MOSTRAR--------------------------------------------------------------*/
+/*MOSTRAR PELICULAS CAMPO ESPECIFICO--------------------------------------------------------------*/
+function mostrarPeliculasCampoEspecifico(data, llave,titulo) {
+    const div = document.createElement("div");
+    div.classList.add("tarjeta");
+    div.innerHTML = ` 
+        <div class="busqueda-imagen">
+            <img src="./imagenes/menu/boton peliculas.png" alt="Peliculas" class="Logos" />
+        </div>
+        <div class="tarjeta-info">
+            <div class="nombre-contenedor">
+                <p class="busqueda-nombre">${data.title}</p>
+            </div>
+            <div class="contenedor-primer-dato">
+                <p class="primer-dato">${titulo}:<br>${data[llave]}</p>
+            </div>
+            <div class="contenedor-segundo-dato">
+                <p class="segundo-dato">Año:<br>${data.release_date}</p>
+            </div>
+        </div>
+    `;
+    listabusqueda.append(div);
+}
+/*MOSTRAR PELICULAS DECADA ESPECIFICO--------------------------------------------------------------*/
+function mostrarPeliculasDecadaEspecifico(data, llave, titulo) {
+    const div = document.createElement("div");
+    div.classList.add("tarjeta");
+    div.innerHTML = ` 
+        <div class="busqueda-imagen">
+            <img src="./imagenes/menu/boton peliculas.png" alt="Peliculas" class="Logos" />
+        </div>
+        <div class="tarjeta-info">
+            <div class="nombre-contenedor">
+                <p class="busqueda-nombre">${data.title}</p>
+            </div>
+            <div class="contenedor-primer-dato">
+                <p class="primer-dato">${titulo}:<br>${data[llave]}</p>
+            </div>
+            <div class="contenedor-segundo-dato">
+                <p class="segundo-dato">Año:<br>${data.release_date}</p>
+            </div>
+        </div>
+    `;
+    document.getElementById("listabusqueda").append(div); 
+}
+
+/*MOSTRAR PERSONAJE CAMPO ESPECIFICO--------------------------------------------------------------*/
+function mostrarPersonajeCampoEspecifico(data, llave,titulo) {
+    const div = document.createElement("div");
+    div.classList.add("tarjeta");
+    div.innerHTML = ` 
+        <div class="busqueda-imagen">
+            <img src="./imagenes/menu/boton personajes.png" alt="Personajes" class="Logos" />
+        </div>
+        <div class="tarjeta-info">
+            <div class="nombre-contenedor">
+                <p class="busqueda-nombre">${data.name}</p>
+            </div>
+            <div class="contenedor-primer-dato">
+                <p class="primer-dato">${titulo}:<br>${data[llave]}</p>
+            </div>
+            <div class="contenedor-segundo-dato">
+                <p class="segundo-dato">${data.height}cm</p>
+            </div>
+        </div>
+    `;
+    listabusqueda.append(div);
+}
+/*MOSTRAR ESPECIE CAMPO ESPECIFICO--------------------------------------------------------------*/
+
+function mostrarEspeciesCampoEspecifico(data, llave,titulo) {
+    const div = document.createElement("div");
+    div.classList.add("tarjeta");
+    div.innerHTML = ` 
+        <div class="busqueda-imagen">
+            <img src="./imagenes/menu/boton especies.png" alt="Especies" class="Logos" />
+        </div>
+        <div class="tarjeta-info">
+            <div class="nombre-contenedor">
+                <p class="busqueda-nombre">${data.name}</p>
+            </div>
+            <div class="contenedor-primer-dato">
+                <p class="primer-dato">${titulo}:<br>${data[llave]}</p>
+            </div>
+            <div class="contenedor-segundo-dato">
+                <p class="segundo-dato">Lenguaje:<br>${data.language}</p>
+            </div>
+        </div>
+    `;
+    listabusqueda.append(div);
+}
+
+/*MOSTRAR NAVES CAMPO ESPECIFICO--------------------------------------------------------------*/
+
+function mostrarNavesCampoEspecifico(data, llave,titulo) {
+    const div = document.createElement("div");
+    div.classList.add("tarjeta");
+    div.innerHTML = ` 
+        <div class="busqueda-imagen">
+            <img src="./imagenes/menu/boton naves.png" alt="Naves" class="Logos" />
+        </div>
+        <div class="tarjeta-info">
+            <div class="nombre-contenedor">
+                <p class="busqueda-nombre">${data.name}</p>
+            </div>
+            <div class="contenedor-primer-dato">
+                <p class="primer-dato">${titulo}:<br>${data[llave]}</p>
+            </div>
+            <div class="contenedor-segundo-dato">
+                <p class="segundo-dato">Tamaño:<br>${data.length}m</p>
+            </div>
+        </div>
+    `;
+    listabusqueda.append(div);
+}
+
+/*MOSTRAR VEHICULOS CAMPO ESPECIFICO--------------------------------------------------------------*/
+
+function mostrarVehiculoCampoEspecifico(data, llave,titulo) {
+    const div = document.createElement("div");
+    div.classList.add("tarjeta");
+    div.innerHTML = `
+        <div class="busqueda-imagen">
+            <img src="./imagenes/menu/boton vehiculos.png" alt="Vehiculos" class="Logos" />
+        </div>
+        <div class="tarjeta-info">
+            <div class="nombre-contenedor">
+                <p class="busqueda-nombre">${data.name}</p>
+            </div>
+            <div class="contenedor-primer-dato">
+                <p class="primer-dato">${titulo}:<br>${data[llave]}</p>
+            </div>
+            <div class="contenedor-segundo-dato">
+                <p class="segundo-dato">Tripulacion:<br>${data.passengers}</p>
+            </div>
+        </div>
+    `;
+    listabusqueda.append(div);
+}
+
+/*MOSTRAR VEHICULOS CAMPO ESPECIFICO--------------------------------------------------------------*/
+
+function mostrarPlanetaCampoEspecifico(data, llave,titulo) {
+    const div = document.createElement("div");
+    div.classList.add("tarjeta");
+    div.innerHTML = ` 
+        <div class="busqueda-imagen">
+            <img src="./imagenes/menu/boton planetas.png" alt="Planetas" class="Logos" />
+        </div>
+        <div class="tarjeta-info">
+            <div class="nombre-contenedor">
+                <p class="busqueda-nombre">${data.name}</p>
+            </div>
+            <div class="contenedor-primer-dato">
+                <p class="primer-dato">${titulo}:<br>${data[llave]}</p>
+            </div>
+            <div class="contenedor-segundo-dato">
+                <p class="segundo-dato">Población:<br>${data.population}</p>
+            </div>
+        </div>
+    `;
+    listabusqueda.append(div);
+}
+
+
+
+
 // People 88 --name /--gender /--height 
 // Planets 61 --name/--diameter &--climate /--population 
 // Species 37 --name/--language  /--designation &--classification 
@@ -905,13 +1257,25 @@ function cambioPlanetas(){
 
 
 
-botonesHeader.forEach(boton=> boton.addEventListener("click",(event)=>{
+
+
+
+/*------------------------------------------------------------------------------------*/
+
+// Añadir eventos a los botones
+botonesHeader.forEach(boton => boton.addEventListener("click", (event) => {
     const botonId = event.currentTarget.id;
 
-    listabusqueda.innerHTML="";
-    descripcion.innerHTML="";
+    function limpiarPantalla() {
+        console.log('Limpiando listabusqueda y descripcion');
+        listabusqueda.innerHTML = "";
+        descripcion.innerHTML = "";
+    }
 
-    switch(botonId){
+    // Limpiar pantalla antes de realizar las acciones
+    limpiarPantalla();
+
+    switch (botonId) {
         case "ver-todo-pelicula":
             films();
             cambioPelicula();
@@ -920,72 +1284,62 @@ botonesHeader.forEach(boton=> boton.addEventListener("click",(event)=>{
             filmsDirector();
             cambioPelicula();
             break;
-// --------- MODIFICAR LLAMADO FUNCIONES DIRECTOR
         case "george":
-            // filmsDirector();
+            filmsCampoEspecifico("director", "George Lucas", "Director");
             cambioPelicula();
             break;
         case "irvin":
-            // filmsDirector();
+            filmsCampoEspecifico("director", "Irvin Kershner", "Director");
             cambioPelicula();
             break;
         case "richard":
-            // filmsDirector();
+            filmsCampoEspecifico("director", "Richard Marquand", "Director");
             cambioPelicula();
             break;
         case "Abrams":
-            // filmsDirector();
+            filmsCampoEspecifico("director", "J. J. Abrams", "Director");
             cambioPelicula();
             break;
-
-// ------------------
         case "producer":
             filmsProductor();
             cambioPelicula();
             break;
-// --------- MODIFICAR LLAMADO FUNCIONES Producer
         case "gary":
-            // filmsDirector();
+            filmsCampoEspecifico("producer", "Gary Kurtz, Rick McCallum", "Productor");
             cambioPelicula();
             break;
         case "howard":
-            // filmsDirector();
+            filmsCampoEspecifico("producer", "Howard G. Kazanjian, George Lucas, Rick McCallum", "Productor");
             cambioPelicula();
             break;
         case "rick":
-            // filmsDirector();
+            filmsCampoEspecifico("producer", "Rick McCallum", "Productor");
             cambioPelicula();
             break;
         case "kathleen":
-            // filmsDirector();
+            filmsCampoEspecifico("producer", "Kathleen Kennedy, J. J. Abrams, Bryan Burk", "Productor");
             cambioPelicula();
             break;
-// ------------------------
-
         case "release_date":
             films();
             cambioPelicula();
             break;
-
-// --------- MODIFICAR LLAMADO FUNCIONES Fecha lanzamiento
         case "70":
-            // filmsDirector();
+            filmsDecadaEspecifico(70, 'director', 'Director');
             cambioPelicula();
             break;
         case "80":
-            // filmsDirector();
+            filmsDecadaEspecifico(80, 'director', 'Director');
             cambioPelicula();
             break;
         case "90":
-            // filmsDirector();
+            filmsDecadaEspecifico(90, 'director', 'Director');
             cambioPelicula();
             break;
         case "2000":
-            // filmsDirector();
+            filmsDecadaEspecifico(2000, 'director', 'Director');
             cambioPelicula();
             break;
-
-// ----------------------------------
         case "ver-todo-personaje":
             people();
             cambioPersonajes();
@@ -994,27 +1348,22 @@ botonesHeader.forEach(boton=> boton.addEventListener("click",(event)=>{
             people();
             cambioPersonajes();
             break;
-
-// CABELLO
-// --------- MODIFICAR LLAMADO FUNCIONES People
         case "rubio":
-            // people();
+            PeopleCampoEspecifico("hair_color", "blond", "Color de Cabello");
             cambioPersonajes();
             break;
         case "Blanco":
-            // people();
+            PeopleCampoEspecifico("hair_color", "white", "Color de Cabello");
             cambioPersonajes();
             break;
         case "Negro":
-            // people();
+            PeopleCampoEspecifico("hair_color", "black", "Color de Cabello");
             cambioPersonajes();
             break;
         case "Gris":
-            // people();
+            PeopleCampoEspecifico("hair_color", "grey", "Color de Cabello");
             cambioPersonajes();
             break;
-
-// -------------------------DEberia estar correcto
         case "Genero":
             people();
             cambioPersonajes();
@@ -1027,37 +1376,30 @@ botonesHeader.forEach(boton=> boton.addEventListener("click",(event)=>{
             peopleHombre();
             cambioPersonajes();
             break;
-
-// ---------------MODIFICAR GENERO INDEFINIDO
         case "Indefinido":
-            // peopleHombre();
+            PeopleCampoEspecifico("gender", "n/a", "Genero");
             cambioPersonajes();
             break;
-
-// ---------------AÑADIR FUNCIO COLOR OJOS
-
         case "Ojos":
             people();
             cambioPersonajes();
             break;
         case "Amarillo":
-            // peopleMujer();
+            PeopleCampoEspecifico("eye_color", "yellow", "Color de Ojos");
             cambioPersonajes();
             break;
         case "Azul":
-            // peopleHombre();
+            PeopleCampoEspecifico("eye_color", "blue", "Color de Ojos");
             cambioPersonajes();
             break;
         case "Rojo":
-            // peopleMujer();
+            PeopleCampoEspecifico("eye_color", "red", "Color de Ojos");
             cambioPersonajes();
             break;
         case "Cafes":
-            // peopleHombre();
+            PeopleCampoEspecifico("eye_color", "brown", "Color de Ojos");
             cambioPersonajes();
             break;
-
-// -----------------------------------------
         case "ver-todo-especie":
             species();
             cambioEspecie();
@@ -1066,42 +1408,34 @@ botonesHeader.forEach(boton=> boton.addEventListener("click",(event)=>{
             speciesClasificacion();
             cambioEspecie();
             break;
-
-// ---------------AÑADIR FUNCIO Clasificacion
         case "Mamifero":
-            // people();
+            especieCampoEspecifico("classification", "mammal", "CLASIFICACION");
             cambioEspecie();
             break;
         case "Artificial":
-            // peopleMujer();
+            especieCampoEspecifico("classification", "artificial", "CLASIFICACION");
             cambioEspecie();
             break;
         case "Reptil":
-            // peopleHombre();
+            especieCampoEspecifico("classification", "reptile", "CLASIFICACION");
             cambioEspecie();
             break;
         case "Anfibio":
-            // peopleMujer();
+            especieCampoEspecifico("classification", "amphibian", "CLASIFICACION");
             cambioEspecie();
             break;
-
-// ------------------------------
         case "designation":
             speciesDesignacion();
             cambioEspecie();
             break;
-// ---------------AÑADIR FUNCIO Designacion
         case "Reptiliano":
-            // people();
+            especieCampoEspecifico("designation", "reptilian", "DESIGNACION");
             cambioEspecie();
             break;
         case "Sintiente":
-            // peopleMujer();
+            especieCampoEspecifico("designation", "Sentient", "DESIGNACION");
             cambioEspecie();
             break;
-
-// --------------------------------
-
         case "ver-todo-nave":
             starships();
             cambioNaves();
@@ -1110,48 +1444,42 @@ botonesHeader.forEach(boton=> boton.addEventListener("click",(event)=>{
             starshipsModelo();
             cambioNaves();
             break;
-// ---------------AÑADIR FUNCIO Modelo NAVES
         case "CR90":
-            // starshipsModelo();
+            navesCampoEspecifico("model", "CR90 corvette", "MODELO");
             cambioNaves();
             break;
         case "Imperial":
-            // starshipsModelo();
+            navesCampoEspecifico("model", "Imperial I-class Star Destroyer", "MODELO");
             cambioNaves();
             break;
         case "Sentinel":
-            // starshipsModelo();
+            navesCampoEspecifico("model", "Sentinel-class landing craft", "MODELO");
             cambioNaves();
             break;
         case "T-65":
-            // starshipsModelo();
+            // Implementa la lógica específica para el modelo T-65
             cambioNaves();
             break;
-// -------------------------------
-
         case "manufacturer":
             starshipsFabricante();
             cambioNaves();
             break;
-// ---------------AÑADIR FUNCIO Fabricante NAVES
         case "Sienar":
-            // starshipsModelo();
+            navesCampoEspecifico("manufacturer", "Sienar Fleet Systems", "FABRICANTE");
             cambioNaves();
             break;
         case "Incom":
-            // starshipsModelo();
+            navesCampoEspecifico("manufacturer", "Incom Corporation", "FABRICANTE");
             cambioNaves();
             break;
         case "Koensayr":
-            // starshipsModelo();
+            navesCampoEspecifico("manufacturer", "Koensayr Manufacturing", "FABRICANTE");
             cambioNaves();
             break;
         case "Kuat":
-            // starshipsModelo();
+            navesCampoEspecifico("manufacturer", "Kuat Drive Yards", "FABRICANTE");
             cambioNaves();
             break;
-// ----------------------------
-
         case "ver-todo-vehiculos":
             vehicles();
             cambioVehiculo();
@@ -1164,43 +1492,38 @@ botonesHeader.forEach(boton=> boton.addEventListener("click",(event)=>{
             vehiclesTripulantes();
             cambioVehiculo();
             break;
-// ---------------AÑADIR FUNCIO Clase VEHICULOS
         case "Caminante":
-            // vehicles();
+            vehiculoCampoEspecifico("vehicle_class", "walker", "CLASE");
             cambioVehiculo();
             break;
         case "Aerodeslizador":
-            // vehiclesPasajeros();
+            vehiculoCampoEspecifico("vehicle_class", "airspeeder", "CLASE");
             cambioVehiculo();
             break;
         case "Submarina":
-            // vehiclesTripulantes();
+            vehiculoCampoEspecifico("vehicle_class", "submarinem", "CLASE");
             cambioVehiculo();
             break;
         case "Propulcion":
-            // vehiclesTripulantes();
+            vehiculoCampoEspecifico("vehicle_class", "repulsorcraftm", "CLASE");
             cambioVehiculo();
             break;
-
-// ---------------AÑADIR FUNCIO Modelo VEHICULOS
         case "Digger":
-            // vehicles();
+            vehiculoCampoEspecifico("model", "Digger Crawler", "CLASE");
             cambioVehiculo();
             break;
         case "t-47":
-            // vehiclesPasajeros();
+            vehiculoCampoEspecifico("model", "t-47 airspeeder", "MODELO");
             cambioVehiculo();
             break;
         case "Storm":
-            // vehiclesTripulantes();
+            vehiculoCampoEspecifico("model", "Storm IV Twin-Pod", "MODELO");
             cambioVehiculo();
             break;
         case "Modified":
-            // vehiclesTripulantes();
+            vehiculoCampoEspecifico("model", "Modified Luxury Sail Barge", "MODELO");
             cambioVehiculo();
             break;
-
-// ----------------------------
         case "ver-todo-planetas":
             planets();
             cambioPlanetas();
@@ -1209,56 +1532,41 @@ botonesHeader.forEach(boton=> boton.addEventListener("click",(event)=>{
             planetsClima();
             cambioPlanetas();
             break;
-// ---------------AÑADIR FUNCIO Clima planetas
-
-        case "CaminaAridonte":
-            // vehicles();
+        case "Arido":
+            planetaCampoEspecifico("climate", "arid", "MODELO");
             cambioPlanetas();
             break;
         case "Congelado":
-            // vehiclesPasajeros();
+            planetaCampoEspecifico("climate", "frozen", "MODELO");
             cambioPlanetas();
             break;
         case "Caliente":
-            // vehiclesTripulantes();
+            planetaCampoEspecifico("climate", "hot", "MODELO");
             cambioPlanetas();
             break;
         case "Templado":
-            // vehiclesTripulantes();
+            planetaCampoEspecifico("climate", "temperate", "MODELO");
             cambioPlanetas();
             break;
-
-// ---------------AÑADIR FUNCIO Terreno planetas
-
         case "Bosques":
-            // vehicles();
+            planetaCampoEspecifico("climate", "forests, mountains, lakes", "MODELO");
             cambioPlanetas();
             break;
         case "Gigante":
-            // vehiclesPasajeros();
+            planetaCampoEspecifico("climate", "gas giant", "MODELO");
             cambioPlanetas();
             break;
         case "Desierto":
-            // vehiclesTripulantes();
+            planetaCampoEspecifico("climate", "desert", "MODELO");
             cambioPlanetas();
             break;
         case "Tundra":
-            // vehiclesTripulantes();
+            planetaCampoEspecifico("climate", "tundra, ice caves, mountain ranges", "MODELO");
             cambioPlanetas();
             break;
-
-// -----------------------------------
         case "diameter":
             planetsDiametro();
             cambioPlanetas();
             break;
     }
-}))
-
-
-
-
-
-
-
-
+}));
