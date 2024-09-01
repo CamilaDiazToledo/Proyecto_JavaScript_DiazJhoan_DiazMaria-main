@@ -5,7 +5,11 @@ const listabusqueda= document.querySelector("#listabusqueda");
 const descripcion = document.querySelector("#descripcion-Starwar");
 const botonesHeader = document.querySelectorAll(".submenu__item");
 
-
+function limpiarPantalla() {
+    console.log('Limpiando listabusqueda y descripcion');
+    listabusqueda.innerHTML = "";
+    descripcion.innerHTML = "";
+}
 
 var URL= "https://swapi.py4e.com/api/people/"
     for(let i = 1; i<= 88; i++){
@@ -125,7 +129,6 @@ function filmsDirector(){
                 console.error(`Error fetching data for person ${i}:`, error);
             });
     }
-    
 }
 function filmsProductor(){
     var URL= "https://swapi.py4e.com/api/films/"
@@ -372,7 +375,6 @@ function vehiclesTripulantes(){
 
 function filmsCampoEspecifico(llave,valor,titulo) {
     var URL = "https://swapi.py4e.com/api/films/";
-    document.getElementById('contenedorTarjetas').innerHTML = "";
     fetch(URL)
         .then(response => {
             if (!response.ok) {
@@ -1265,12 +1267,6 @@ function cambioPlanetas(){
 // Añadir eventos a los botones
 botonesHeader.forEach(boton => boton.addEventListener("click", (event) => {
     const botonId = event.currentTarget.id;
-
-    function limpiarPantalla() {
-        console.log('Limpiando listabusqueda y descripcion');
-        listabusqueda.innerHTML = "";
-        descripcion.innerHTML = "";
-    }
 
     // Limpiar pantalla antes de realizar las acciones
     limpiarPantalla();
