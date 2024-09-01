@@ -920,20 +920,102 @@ botonesHeader.forEach(boton=> boton.addEventListener("click",(event)=>{
             filmsDirector();
             cambioPelicula();
             break;
+// --------- MODIFICAR LLAMADO FUNCIONES DIRECTOR
+        case "george":
+            // filmsDirector();
+            cambioPelicula();
+            break;
+        case "irvin":
+            // filmsDirector();
+            cambioPelicula();
+            break;
+        case "richard":
+            // filmsDirector();
+            cambioPelicula();
+            break;
+        case "Abrams":
+            // filmsDirector();
+            cambioPelicula();
+            break;
+
+// ------------------
         case "producer":
             filmsProductor();
             cambioPelicula();
             break;
+// --------- MODIFICAR LLAMADO FUNCIONES Producer
+        case "gary":
+            // filmsDirector();
+            cambioPelicula();
+            break;
+        case "howard":
+            // filmsDirector();
+            cambioPelicula();
+            break;
+        case "rick":
+            // filmsDirector();
+            cambioPelicula();
+            break;
+        case "kathleen":
+            // filmsDirector();
+            cambioPelicula();
+            break;
+// ------------------------
+
         case "release_date":
             films();
             cambioPelicula();
             break;
-            // ----------------------------
+
+// --------- MODIFICAR LLAMADO FUNCIONES Fecha lanzamiento
+        case "70":
+            // filmsDirector();
+            cambioPelicula();
+            break;
+        case "80":
+            // filmsDirector();
+            cambioPelicula();
+            break;
+        case "90":
+            // filmsDirector();
+            cambioPelicula();
+            break;
+        case "2000":
+            // filmsDirector();
+            cambioPelicula();
+            break;
+
+// ----------------------------------
         case "ver-todo-personaje":
             people();
             cambioPersonajes();
             break;
-        case "height":
+        case "cabello":
+            people();
+            cambioPersonajes();
+            break;
+
+// CABELLO
+// --------- MODIFICAR LLAMADO FUNCIONES People
+        case "rubio":
+            // people();
+            cambioPersonajes();
+            break;
+        case "Blanco":
+            // people();
+            cambioPersonajes();
+            break;
+        case "Negro":
+            // people();
+            cambioPersonajes();
+            break;
+        case "Gris":
+            // people();
+            cambioPersonajes();
+            break;
+
+// -------------------------DEberia estar correcto
+        case "Genero":
             people();
             cambioPersonajes();
             break;
@@ -945,7 +1027,37 @@ botonesHeader.forEach(boton=> boton.addEventListener("click",(event)=>{
             peopleHombre();
             cambioPersonajes();
             break;
-            // ----------------------------
+
+// ---------------MODIFICAR GENERO INDEFINIDO
+        case "Indefinido":
+            // peopleHombre();
+            cambioPersonajes();
+            break;
+
+// ---------------AÑADIR FUNCIO COLOR OJOS
+
+        case "Ojos":
+            people();
+            cambioPersonajes();
+            break;
+        case "Amarillo":
+            // peopleMujer();
+            cambioPersonajes();
+            break;
+        case "Azul":
+            // peopleHombre();
+            cambioPersonajes();
+            break;
+        case "Rojo":
+            // peopleMujer();
+            cambioPersonajes();
+            break;
+        case "Cafes":
+            // peopleHombre();
+            cambioPersonajes();
+            break;
+
+// -----------------------------------------
         case "ver-todo-especie":
             species();
             cambioEspecie();
@@ -954,11 +1066,42 @@ botonesHeader.forEach(boton=> boton.addEventListener("click",(event)=>{
             speciesClasificacion();
             cambioEspecie();
             break;
+
+// ---------------AÑADIR FUNCIO Clasificacion
+        case "Mamifero":
+            // people();
+            cambioEspecie();
+            break;
+        case "Artificial":
+            // peopleMujer();
+            cambioEspecie();
+            break;
+        case "Reptil":
+            // peopleHombre();
+            cambioEspecie();
+            break;
+        case "Anfibio":
+            // peopleMujer();
+            cambioEspecie();
+            break;
+
+// ------------------------------
         case "designation":
             speciesDesignacion();
             cambioEspecie();
             break;
-            // ----------------------------
+// ---------------AÑADIR FUNCIO Designacion
+        case "Reptiliano":
+            // people();
+            cambioEspecie();
+            break;
+        case "Sintiente":
+            // peopleMujer();
+            cambioEspecie();
+            break;
+
+// --------------------------------
+
         case "ver-todo-nave":
             starships();
             cambioNaves();
@@ -967,11 +1110,48 @@ botonesHeader.forEach(boton=> boton.addEventListener("click",(event)=>{
             starshipsModelo();
             cambioNaves();
             break;
+// ---------------AÑADIR FUNCIO Modelo NAVES
+        case "CR90":
+            // starshipsModelo();
+            cambioNaves();
+            break;
+        case "Imperial":
+            // starshipsModelo();
+            cambioNaves();
+            break;
+        case "Sentinel":
+            // starshipsModelo();
+            cambioNaves();
+            break;
+        case "T-65":
+            // starshipsModelo();
+            cambioNaves();
+            break;
+// -------------------------------
+
         case "manufacturer":
             starshipsFabricante();
             cambioNaves();
             break;
-            // ----------------------------
+// ---------------AÑADIR FUNCIO Fabricante NAVES
+        case "Sienar":
+            // starshipsModelo();
+            cambioNaves();
+            break;
+        case "Incom":
+            // starshipsModelo();
+            cambioNaves();
+            break;
+        case "Koensayr":
+            // starshipsModelo();
+            cambioNaves();
+            break;
+        case "Kuat":
+            // starshipsModelo();
+            cambioNaves();
+            break;
+// ----------------------------
+
         case "ver-todo-vehiculos":
             vehicles();
             cambioVehiculo();
@@ -984,7 +1164,43 @@ botonesHeader.forEach(boton=> boton.addEventListener("click",(event)=>{
             vehiclesTripulantes();
             cambioVehiculo();
             break;
-            // ----------------------------
+// ---------------AÑADIR FUNCIO Clase VEHICULOS
+        case "Caminante":
+            // vehicles();
+            cambioVehiculo();
+            break;
+        case "Aerodeslizador":
+            // vehiclesPasajeros();
+            cambioVehiculo();
+            break;
+        case "Submarina":
+            // vehiclesTripulantes();
+            cambioVehiculo();
+            break;
+        case "Propulcion":
+            // vehiclesTripulantes();
+            cambioVehiculo();
+            break;
+
+// ---------------AÑADIR FUNCIO Modelo VEHICULOS
+        case "Digger":
+            // vehicles();
+            cambioVehiculo();
+            break;
+        case "t-47":
+            // vehiclesPasajeros();
+            cambioVehiculo();
+            break;
+        case "Storm":
+            // vehiclesTripulantes();
+            cambioVehiculo();
+            break;
+        case "Modified":
+            // vehiclesTripulantes();
+            cambioVehiculo();
+            break;
+
+// ----------------------------
         case "ver-todo-planetas":
             planets();
             cambioPlanetas();
@@ -993,6 +1209,45 @@ botonesHeader.forEach(boton=> boton.addEventListener("click",(event)=>{
             planetsClima();
             cambioPlanetas();
             break;
+// ---------------AÑADIR FUNCIO Clima planetas
+
+        case "CaminaAridonte":
+            // vehicles();
+            cambioPlanetas();
+            break;
+        case "Congelado":
+            // vehiclesPasajeros();
+            cambioPlanetas();
+            break;
+        case "Caliente":
+            // vehiclesTripulantes();
+            cambioPlanetas();
+            break;
+        case "Templado":
+            // vehiclesTripulantes();
+            cambioPlanetas();
+            break;
+
+// ---------------AÑADIR FUNCIO Terreno planetas
+
+        case "Bosques":
+            // vehicles();
+            cambioPlanetas();
+            break;
+        case "Gigante":
+            // vehiclesPasajeros();
+            cambioPlanetas();
+            break;
+        case "Desierto":
+            // vehiclesTripulantes();
+            cambioPlanetas();
+            break;
+        case "Tundra":
+            // vehiclesTripulantes();
+            cambioPlanetas();
+            break;
+
+// -----------------------------------
         case "diameter":
             planetsDiametro();
             cambioPlanetas();

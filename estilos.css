@@ -100,6 +100,26 @@ header{
     position: relative;
 }
 
+.header_submenu_item{
+    margin-block:1vh;
+    display: flex;
+    flex-direction: column;
+    align-items:baseline;
+    position: relative;
+}
+
+/* .header_submenu_item:hover {
+    display: block;
+} */
+.submenu_interno{
+    display: none;
+    list-style:square;
+}
+.m:hover .submenu_interno{
+    display: block;
+}
+
+
 .header__link{
     text-decoration: none; 
     color: inherit; 
@@ -131,8 +151,9 @@ a{
     position: absolute;
     top: 100%; 
     left: 0;
-    background-color: rgba(33, 32, 41, 0.8);
-    padding: 0.5rem;
+    background-color: rgb(33, 32, 41);
+    padding-left: 1.5rem;
+    width: 25vw;
     list-style: none;
     margin: 0;
     float: left;
@@ -140,7 +161,7 @@ a{
 }
 
 .submenu__item {
-    margin: 0.5rem 0;
+    margin: 0.5rem 1.5vw;
 }
 
 .submenu__link {
@@ -526,6 +547,7 @@ div.advertencia_celular img{
 
 /* ----------------------------RESPONSIVE MENU */
 
+
 @media (max-width: 715px) {
     header{
         margin-top: 0;
@@ -540,11 +562,16 @@ div.advertencia_celular img{
         left: 0;
         padding-top: 60px;
         margin-top: -1rem;
+        
     }
 
     .header__item {
         margin: 0.5rem 0;
     }
+/*     
+    .header_submenu_item:hover {
+        display: block;
+    } */
 
     .header__link {
         font-size: 1.5rem;
@@ -562,7 +589,7 @@ div.advertencia_celular img{
         position: static;
         background-color: transparent;
         padding: 0;
-        height: 100vw;
+        /* height: 100vw; */
     }
 
     .submenu__item {
@@ -617,7 +644,16 @@ div.advertencia_celular img{
 
 }
 
+@media (max-height: 750px ){
+    .header__list {
+        padding-top: 4vh;
+    }
+    .header__item {
+        padding: 0;
+        font-size: 0.9em;
 
+    }
+}
 
 
 /*----------------------------RESPONSIVE MEDIA LIMITE DE PANTALLA para menos de 300 px*/
